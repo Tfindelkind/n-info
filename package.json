@@ -1,0 +1,23 @@
+{
+  "name": "ntnx-info",
+  "version": "1.0.0",
+  "description": "Nutanix-Info which displays/exports various statistics about a Nutanix environment",
+  "main": "index.js",
+  "scripts": {
+    "ntnx-info": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/tfindelkind/ntnx-info.git"
+  },
+  "author": "thomas@thomas-findelkind.de",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tfindelkind/ntnx-info/issues"
+  },
+  "homepage": "https://github.com/tfindelkind/ntnx-info#readme",
+  "dependencies": {
+    "electron": "^1.7.9"
+  }
+
+}

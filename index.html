@@ -1,0 +1,38 @@
+<h1>NTNX-INFO<br> </h1>
+  <form>
+    <div>
+       <label> NTNX-Cluster: </label>
+       <input id="cluster" value="192.168.178.110" type="text">
+       <label>User: </label>
+       <input id="username" value="admin" type="text">
+       <label> Password: </label>
+       <input id="password" value="2Tausend17!" type="password">&nbsp; <br>
+    </div>
+    <button type="submit">Connect</button>
+  </form>
+
+  <h1 id="result"> </h1>
+
+  <h1><textarea id="cluster_name" readonly="readonly" cols="20" rows="1" name="cluster-name"></textarea></h1>
+  
+<script>
+     // use electron
+     const electron = require('electron')
+     const { ipcRenderer } = electron
+
+     document.querySelector('form').addEventListener('submit', (event) => {
+     event.preventDefault()
+     ipcRenderer.send('ntnx:connect', document.getElementById('cluster').value, document.getElementById('username').value, document.getElementById('password').value)
+     })
+
+     ipcRenderer.on('ntnx:connect:resp', (event, statusCode) => {
+      document.querySelector('#result').innerHTML = `Video is ${statusCode} seconds`;
+     })
+
+     ipcRenderer.on('ntnx:cluster_name', (event, cluster_name) => {
+      document.querySelector('#cluster_name').innerHTML = `${cluster_name}`;
+      console.log("ja");
+     })
+
+
+  </script>
